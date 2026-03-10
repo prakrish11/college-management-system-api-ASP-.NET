@@ -1,0 +1,6 @@
+@CollegeManagementSystem_HostAddress = http://localhost:5091
+
+GET {{CollegeManagementSystem_HostAddress}}/api/student/getall
+Accept: application/json
+
+###

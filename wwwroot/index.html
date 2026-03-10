@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>College Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Student Records Console</p>
+          <h1>College Management System</h1>
+          <p class="subhead">
+            Create, update, search, and remove students using the in-memory API.
+          </p>
+        </div>
+        <div class="hero-card">
+          <div class="stat">
+            <span class="stat-label">API Base</span>
+            <span class="stat-value">/api/student</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Status</span>
+            <span id="apiStatus" class="stat-value">Ready</span>
+          </div>
+          <button id="refreshAll" class="primary">Refresh List</button>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel">
+          <h2>Add or Update</h2>
+          <form id="studentForm">
+            <label>
+              Student Id
+              <input id="studentId" name="id" placeholder="S004" required />
+            </label>
+            <label>
+              Full Name
+              <input id="studentName" name="name" placeholder="Jordan Lee" required />
+            </label>
+            <label>
+              Age
+              <input id="studentAge" name="age" type="number" min="1" placeholder="21" required />
+            </label>
+            <label>
+              Course
+              <input id="studentCourse" name="course" placeholder="Biology" required />
+            </label>
+            <div class="button-row">
+              <button type="button" id="addStudent" class="primary">Add Student</button>
+              <button type="button" id="updateStudent" class="ghost">Update Student</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Find or Delete</h2>
+          <div class="stack">
+            <label>
+              Search by Id
+              <input id="searchId" placeholder="S001" />
+            </label>
+            <div class="button-row">
+              <button type="button" id="findStudent" class="secondary">Find Student</button>
+              <button type="button" id="deleteStudent" class="danger">Delete Student</button>
+            </div>
+            <div id="singleResult" class="result-card">
+              <p class="muted">Student details will appear here.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel span-two">
+          <div class="panel-header">
+            <h2>All Students</h2>
+            <span id="totalCount" class="pill">0 records</span>
+          </div>
+          <div id="studentList" class="cards"></div>
+        </section>
+      </main>
+
+      <footer class="status">
+        <span id="statusText">Waiting for action.</span>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
